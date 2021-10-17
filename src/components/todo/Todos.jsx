@@ -11,6 +11,10 @@ const Todos = () => {
         setText(text => text = '')
         console.log(`second -> text: ${text} arr:${toarr}`)
     }
+    const handleDelete = (id) => {
+        console.log(`Id is: ${id}`)
+        setToArr(prevArr => prevArr.filter((item, index) => index!==id))
+    }
     return (
         <>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -44,7 +48,7 @@ const Todos = () => {
 
                                 </Grid>
                                 {toarr.map((arr,index) => 
-                                    <Todo key={index} val = {arr}/>
+                                    <Todo key={index} val = {arr} id={index} handleDelete = {handleDelete}/>
                                     )}
                                 {/* <Todo /> */}
 
